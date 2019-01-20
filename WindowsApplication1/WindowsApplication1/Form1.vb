@@ -37,11 +37,11 @@ Public Class Form1
 
         ' Word dictionary for common words
         Dim wordDict As New Dictionary(Of String, Integer)
-        'Dim lines = IO.File.ReadAllLines(My.Resources.dictionary)
+        Dim lines = IO.File.ReadAllLines("G:\passwordStrengthChecker\WindowsApplication1\Media\dictionary.txt")
 
-        'For i = 0 To lines.Length - 1
-        'wordDict.Add(lines(i), 1)
-        'Next
+        For i = 0 To lines.Length - 1
+            wordDict.Add(lines(i), 1)
+        Next
 
         ' Score Calculation
         Dim password As String = textPassword.Text
@@ -62,6 +62,7 @@ Public Class Form1
         Dim isSpace As Boolean = False
         Dim lettersOnly As Boolean = True
         Dim numbersOnly As Boolean = True
+        Dim isCommon As Boolean = False
 
         ' Additions
         For Each c In password
@@ -111,29 +112,29 @@ Public Class Form1
         Next
 
         ' Repeat Characters
-        Dim charDict As New Dictionary(Of Char, Integer)
-        For i = 0 To password.Length - 1
-            If Char.IsLetter(password.Chars(i)) Then
-                If charDict.ContainsKey(Char.ToLower(password.Chars(i))) Then
-                    charDict(Char.ToLower(password.Chars(i))) += 1
-                Else
-                    charDict.Add(Char.ToLower(password.Chars(i)), 1)
-                End If
-            Else
-                If charDict.ContainsKey(password.Chars(i)) Then
-                    charDict(password.Chars(i)) += 1
-                Else
-                    Console.WriteLine(password.Chars(i))
-                    charDict.Add(password.Chars(i), 1)
-                End If
-            End If
-        Next
+        'Dim charDict As New Dictionary(Of Char, Integer)
+        'For i = 0 To password.Length - 1
+        '    If Char.IsLetter(password.Chars(i)) Then
+        '        If charDict.ContainsKey(Char.ToLower(password.Chars(i))) Then
+        '            charDict(Char.ToLower(password.Chars(i))) += 1
+        '        Else
+        '            charDict.Add(Char.ToLower(password.Chars(i)), 1)
+        '        End If
+        '    Else
+        '        If charDict.ContainsKey(password.Chars(i)) Then
+        '            charDict(password.Chars(i)) += 1
+        '        Else
+        '            Console.WriteLine(password.Chars(i))
+        '            charDict.Add(password.Chars(i), 1)
+        '        End If
+        '    End If
+        'Next
 
-        For Each pair In charDict
-            If pair.Value > 1 Then
-                repeatChars += pair.Value
-            End If
-        Next
+        'For Each pair In charDict
+        '    If pair.Value > 1 Then
+        '        repeatChars += pair.Value
+        '    End If
+        'Next
 
         ' Consecutive Letters
         Dim j As Integer = 1
@@ -166,8 +167,9 @@ Public Class Form1
                 End If
             End While
             j += 1
-            Console.WriteLine(num)
-            seqChars += (num + 1)
+            If num > 0 Then
+                seqChars += (num + 1)
+            End If
         End While
 
         ' Score Additions
@@ -175,21 +177,39 @@ Public Class Form1
         Console.Write(score & " ")
 
         If uppercase > 0 Then
+            lblUppercase.Image = My.Resources.tick
             score += (len - uppercase) * 2
+        Else
+            lblUppercase.Image = My.Resources.cross
         End If
         Console.Write(score & " ")
 
         If lowercase > 0 Then
+            lblLowercase.Image = My.Resources.tick
             score += (len - lowercase) * 2
+        Else
+            lblLowercase.Image = My.Resources.cross
         End If
         Console.Write(score & " ")
+
+        If numbers > 0 Then
+            lblNumbers.Image = My.Resources.tick
+        Else
+            lblNumbers.Image = My.Resources.cross
+        End If
+
+        If symbols > 0 Then
+            lblSymbols.Image = My.Resources.tick
+        Else
+            lblSymbols.Image = My.Resources.cross
+        End If
 
         If lowercase > 0 Or uppercase > 0 Or symbols > 0 Then
-            score += numbers * 4
+            score += numbers * 2
         End If
         Console.Write(score & " ")
 
-        score += symbols * 6
+        score += symbols * 4
         Console.Write(score & " ")
 
         score += middleNumOrSym * 2
@@ -211,40 +231,56 @@ Public Class Form1
         End If
         Console.Write(score & " ")
 
-        score -= repeatChars    ' Figure out algo
-        Console.Write(score & " ")
+        'score -= repeatChars
+        'Console.Write(score & " ")
 
-        score -= consecChars * 2
+        score -= consecChars
         Console.Write(score & " ")
 
         If seqChars >= 3 Then
-            score -= (seqChars - 2) * 3
+            score -= (seqChars - 2) * 2
         End If
         Console.WriteLine(score, " ")
+        Console.WriteLine(seqChars)
+
+        For j = 0 To password.Length - 1
+            For k = 1 To password.Length - j
+                If wordDict.ContainsKey(password.Substring(j, k)) Then
+                    isCommon = True
+                End If
+            Next
+        Next
 
         ' Score Normalization
         score = Math.Max(0, score)
 
         ' Background Change
-        If score <= 40 Then
+        If isSpace Then
+            labelMessage.Text = "Invalid Password! Please don't use spaces."
+            score = 0
+        End If
+
+        If wordDict.ContainsKey(password) Then
+            score = 0
+            labelMessage.Text = "Don't use common words as password! This will make your password weaker."
+        ElseIf isCommon = True Then
+            score /= 2
+            labelMessage.Text = "Don't use common words in your password! This will make your password weaker."
+        End If
+
+        If score <= 20 Then
             Me.BackColor = Color.FromArgb(192, 0, 0)
             message = "VERY WEAK"
-        ElseIf score <= 80 Then
+        ElseIf score <= 40 Then
             Me.BackColor = Color.Red
             message = "WEAK"
-        ElseIf score <= 120 Then
+        ElseIf score <= 60 Then
             Me.BackColor = Color.FromArgb(192, 64, 0)
-            message = "WEAK"
-        ElseIf score <= 160 Then
-            Me.BackColor = Color.FromArgb(255, 128, 0)
             message = "AVERAGE"
-        ElseIf score <= 200 Then
+        ElseIf score <= 80 Then
             Me.BackColor = Color.Yellow
             message = "GOOD"
-        ElseIf score <= 240 Then
-            Me.BackColor = Color.FromArgb(192, 192, 0)
-            message = "GOOD"
-        ElseIf score <= 280 Then
+        ElseIf score <= 100 Then
             Me.BackColor = Color.Lime
             message = "STRONG"
         Else
@@ -252,9 +288,12 @@ Public Class Form1
             message = "VERY STRONG"
         End If
 
-        Dim strength As Decimal = Math.Min((score / 500) * 100.0, 100.0)
-        labelMessage.Text = "Your password is " & message & " with " & strength & "% strength!"
+        Dim strength As Decimal = Math.Min((score / 120) * 100.0, 100.0)
 
+        Console.WriteLine(isCommon)
+        If Not isSpace And Not isCommon And Not wordDict.ContainsKey(password) Then
+            labelMessage.Text = "Your password is " & message & " with " & strength & "% strength!"
+        End If
     End Sub
 
     Private Sub btnSavePassword_Click(sender As Object, e As EventArgs) Handles btnSavePassword.Click
@@ -263,10 +302,8 @@ Public Class Form1
         Else
             If dictSavedPasswords.ContainsKey(txtUsername.Text) Then
                 dictSavedPasswords(txtUsername.Text) = textPassword.Text
-                Console.WriteLine("123")
             Else
                 dictSavedPasswords.Add(txtUsername.Text, textPassword.Text)
-                Console.WriteLine("456")
             End If
 
         End If

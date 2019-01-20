@@ -22,20 +22,20 @@ Partial Class Form2
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.lblSaved = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lblUsername = New System.Windows.Forms.Label()
+        Me.lblSaved = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
-        'lblSaved
+        'Label2
         '
-        Me.lblSaved.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!)
-        Me.lblSaved.Location = New System.Drawing.Point(29, 26)
-        Me.lblSaved.Name = "lblSaved"
-        Me.lblSaved.Size = New System.Drawing.Size(85, 25)
-        Me.lblSaved.TabIndex = 0
-        Me.lblSaved.Text = "Username:"
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!)
+        Me.Label2.Location = New System.Drawing.Point(29, 26)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(85, 25)
+        Me.Label2.TabIndex = 0
+        Me.Label2.Text = "Username:"
         '
         'Label1
         '
@@ -47,25 +47,25 @@ Partial Class Form2
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Password:"
         '
-        'Label2
+        'lblUsername
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!)
-        Me.Label2.Location = New System.Drawing.Point(120, 26)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(78, 18)
-        Me.Label2.TabIndex = 2
-        Me.Label2.Text = "user.name"
+        Me.lblUsername.AutoSize = True
+        Me.lblUsername.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!)
+        Me.lblUsername.Location = New System.Drawing.Point(120, 26)
+        Me.lblUsername.Name = "lblUsername"
+        Me.lblUsername.Size = New System.Drawing.Size(78, 18)
+        Me.lblUsername.TabIndex = 2
+        Me.lblUsername.Text = "user.name"
         '
-        'Label3
+        'lblSaved
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!)
-        Me.Label3.Location = New System.Drawing.Point(120, 57)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(106, 18)
-        Me.Label3.TabIndex = 3
-        Me.Label3.Text = "user.password"
+        Me.lblSaved.AutoSize = True
+        Me.lblSaved.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!)
+        Me.lblSaved.Location = New System.Drawing.Point(120, 57)
+        Me.lblSaved.Name = "lblSaved"
+        Me.lblSaved.Size = New System.Drawing.Size(106, 18)
+        Me.lblSaved.TabIndex = 3
+        Me.lblSaved.Text = "user.password"
         '
         'Form2
         '
@@ -73,10 +73,10 @@ Partial Class Form2
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(439, 135)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.lblSaved)
+        Me.Controls.Add(Me.lblUsername)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.Label2)
         Me.MinimumSize = New System.Drawing.Size(100, 100)
         Me.Name = "Form2"
         Me.Text = "Form2"
@@ -84,8 +84,8 @@ Partial Class Form2
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents lblSaved As System.Windows.Forms.Label
-    Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents lblUsername As System.Windows.Forms.Label
+    Friend WithEvents lblSaved As System.Windows.Forms.Label
 End Class

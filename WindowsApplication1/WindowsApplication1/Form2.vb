@@ -25,6 +25,8 @@
     End Sub
 
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        lblUsername.Text = username
+
         If dictSavedPasswords.ContainsKey(username) Then
             lblSaved.Text = dictSavedPasswords(username)
         Else

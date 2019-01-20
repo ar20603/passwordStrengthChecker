@@ -35,6 +35,8 @@ Partial Class Form1
         Me.labelMessage = New System.Windows.Forms.Label()
         Me.txtUsername = New System.Windows.Forms.TextBox()
         Me.btnMySavedPassword = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'textPassword
@@ -171,12 +173,32 @@ Partial Class Form1
         Me.btnMySavedPassword.Text = "Show saved"
         Me.btnMySavedPassword.UseVisualStyleBackColor = True
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(35, 247)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(100, 32)
+        Me.Button1.TabIndex = 14
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(187, 257)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(39, 13)
+        Me.Label3.TabIndex = 15
+        Me.Label3.Text = "Label3"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(716, 461)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.btnMySavedPassword)
         Me.Controls.Add(Me.txtUsername)
         Me.Controls.Add(Me.labelMessage)
@@ -209,5 +231,7 @@ Partial Class Form1
     Friend WithEvents labelMessage As System.Windows.Forms.Label
     Friend WithEvents txtUsername As System.Windows.Forms.TextBox
     Friend WithEvents btnMySavedPassword As System.Windows.Forms.Button
+    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents Label3 As System.Windows.Forms.Label
 
 End Class
