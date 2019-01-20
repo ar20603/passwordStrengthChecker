@@ -18,3 +18,4 @@ G:\passwordStrengthChecker\WindowsApplication1\WindowsApplication1\bin\Debug\Win
 G:\passwordStrengthChecker\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.Form1.resources
 G:\passwordStrengthChecker\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.Resources.resources
 G:\passwordStrengthChecker\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.vbproj.GenerateResource.Cache
+G:\passwordStrengthChecker\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.Form2.resources

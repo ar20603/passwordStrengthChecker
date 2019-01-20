@@ -71,6 +71,41 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to love
+        '''qwerty
+        '''qwertyuiop
+        '''asdf
+        '''asdfghjkl
+        '''zxcv
+        '''password 
+        '''passwd
+        '''1234
+        '''123456
+        '''1234567890
+        '''dragon
+        '''pussy
+        '''baseball
+        '''iloveyou
+        '''ihateyou
+        '''football
+        '''696969
+        '''shadow
+        '''jennifer
+        '''1111
+        '''111111
+        '''000000
+        '''superman
+        '''batman
+        '''george
+        '''jessica.
+        '''</summary>
+        Friend ReadOnly Property dictionary() As String
+            Get
+                Return ResourceManager.GetString("dictionary", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property tick() As System.Drawing.Bitmap

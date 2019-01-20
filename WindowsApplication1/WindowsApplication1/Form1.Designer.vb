@@ -31,9 +31,10 @@ Partial Class Form1
         Me.lblSymbols = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnSavePassword = New System.Windows.Forms.Button()
         Me.labelMessage = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtUsername = New System.Windows.Forms.TextBox()
+        Me.btnMySavedPassword = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'textPassword
@@ -132,14 +133,14 @@ Partial Class Form1
         Me.Label2.Text = "This program checks the strength of your password and give you valuable suggestio" & _
     "ns to improve it. Type your password in the text box to trigger the program."
         '
-        'Button1
+        'btnSavePassword
         '
-        Me.Button1.Location = New System.Drawing.Point(612, 153)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(61, 24)
-        Me.Button1.TabIndex = 10
-        Me.Button1.Text = "Save"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnSavePassword.Location = New System.Drawing.Point(604, 153)
+        Me.btnSavePassword.Name = "btnSavePassword"
+        Me.btnSavePassword.Size = New System.Drawing.Size(75, 24)
+        Me.btnSavePassword.TabIndex = 10
+        Me.btnSavePassword.Text = "Save"
+        Me.btnSavePassword.UseVisualStyleBackColor = True
         '
         'labelMessage
         '
@@ -151,15 +152,24 @@ Partial Class Form1
         Me.labelMessage.TabIndex = 11
         Me.labelMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'TextBox1
+        'txtUsername
         '
-        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!)
-        Me.TextBox1.Location = New System.Drawing.Point(25, 104)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(573, 24)
-        Me.TextBox1.TabIndex = 12
-        Me.TextBox1.Tag = ""
-        Me.TextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtUsername.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!)
+        Me.txtUsername.Location = New System.Drawing.Point(25, 104)
+        Me.txtUsername.Name = "txtUsername"
+        Me.txtUsername.Size = New System.Drawing.Size(573, 24)
+        Me.txtUsername.TabIndex = 12
+        Me.txtUsername.Tag = ""
+        Me.txtUsername.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'btnMySavedPassword
+        '
+        Me.btnMySavedPassword.Location = New System.Drawing.Point(604, 104)
+        Me.btnMySavedPassword.Name = "btnMySavedPassword"
+        Me.btnMySavedPassword.Size = New System.Drawing.Size(75, 24)
+        Me.btnMySavedPassword.TabIndex = 13
+        Me.btnMySavedPassword.Text = "Show saved"
+        Me.btnMySavedPassword.UseVisualStyleBackColor = True
         '
         'Form1
         '
@@ -167,9 +177,10 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(716, 461)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.btnMySavedPassword)
+        Me.Controls.Add(Me.txtUsername)
         Me.Controls.Add(Me.labelMessage)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btnSavePassword)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.lblSymbols)
@@ -194,8 +205,9 @@ Partial Class Form1
     Friend WithEvents lblSymbols As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents btnSavePassword As System.Windows.Forms.Button
     Friend WithEvents labelMessage As System.Windows.Forms.Label
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents txtUsername As System.Windows.Forms.TextBox
+    Friend WithEvents btnMySavedPassword As System.Windows.Forms.Button
 
 End Class
