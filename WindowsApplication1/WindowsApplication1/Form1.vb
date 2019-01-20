@@ -317,5 +317,30 @@ Public Class Form1
         OBJ.Show()
     End Sub
 
+    Private Sub btnSuggest_Click(sender As Object, e As EventArgs) Handles btnSuggest.Click
+        Dim suggestedPassword As String = ""
+        Dim Ch As Integer
+        Dim UsableSymbols() As String
+        Dim Symbols = "`,~,!,@,#,$,%,^,&,*,(,),_,-,=,+,[,{,],},\,|,;,:,',?,/,.,>,<"
+        UsableSymbols = Split(Symbols, ",")
+        Dim Sym As Char
+
+        Randomize()
+
+        For i = 1 To 3
+            Ch = Int((Asc("Z") - Asc("A") + 1) * Rnd() + Asc("A"))
+            suggestedPassword = suggestedPassword & Chr(Ch)
+            Ch = Int((Asc("z") - Asc("a") + 1) * Rnd() + Asc("a"))
+            suggestedPassword = suggestedPassword & Chr(Ch)
+            Ch = Int((Asc("9") - Asc("0") + 1) * Rnd() + Asc("0"))
+            suggestedPassword = suggestedPassword & Chr(Ch)
+
+            Sym = UsableSymbols((29 * Rnd()))
+            suggestedPassword = suggestedPassword & Sym
+        Next
+
+        lblSuggested.Text = suggestedPassword
+    End Sub
+
 End Class
 
