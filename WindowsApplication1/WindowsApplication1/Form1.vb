@@ -111,19 +111,20 @@ Public Class Form1
         Next
 
         ' Repeat Characters
-        Dim charDict As New Dictionary(Of String, Integer)
-        For Each c In password
-            If Char.IsLetter(c) Then
-                If charDict.ContainsKey(Char.IsLower(c)) Then
-                    charDict(Char.IsLower(c)) += 1
+        Dim charDict As New Dictionary(Of Char, Integer)
+        For i = 0 To password.Length - 1
+            If Char.IsLetter(password.Chars(i)) Then
+                If charDict.ContainsKey(Char.ToLower(password.Chars(i))) Then
+                    charDict(Char.ToLower(password.Chars(i))) += 1
                 Else
-                    charDict(Char.IsLower(c)) = 1
+                    charDict.Add(Char.ToLower(password.Chars(i)), 1)
                 End If
             Else
-                If charDict.ContainsKey(c) Then
-                    charDict(c) += 1
+                If charDict.ContainsKey(password.Chars(i)) Then
+                    charDict(password.Chars(i)) += 1
                 Else
-                    charDict(c) = 1
+                    Console.WriteLine(password.Chars(i))
+                    charDict.Add(password.Chars(i), 1)
                 End If
             End If
         Next
@@ -147,7 +148,9 @@ Public Class Form1
                 End If
             End While
             j += 1
-            consecChars += num + 1
+            If num > 0 Then
+                consecChars += (num + 1)
+            End If
         End While
 
         ' Sequential Letters
@@ -163,7 +166,8 @@ Public Class Form1
                 End If
             End While
             j += 1
-            seqChars += num + 1
+            Console.WriteLine(num)
+            seqChars += (num + 1)
         End While
 
         ' Score Additions
@@ -180,7 +184,9 @@ Public Class Form1
         End If
         Console.Write(score & " ")
 
-        score += numbers * 4
+        If lowercase > 0 Or uppercase > 0 Or symbols > 0 Then
+            score += numbers * 4
+        End If
         Console.Write(score & " ")
 
         score += symbols * 6
@@ -205,16 +211,16 @@ Public Class Form1
         End If
         Console.Write(score & " ")
 
-        score -= repeatChars
+        score -= repeatChars    ' Figure out algo
         Console.Write(score & " ")
 
         score -= consecChars * 2
         Console.Write(score & " ")
 
         If seqChars >= 3 Then
-            score -= seqChars * 3
+            score -= (seqChars - 2) * 3
         End If
-        Console.Write(score & " ")
+        Console.WriteLine(score, " ")
 
         ' Score Normalization
         score = Math.Max(0, score)
@@ -247,7 +253,6 @@ Public Class Form1
         End If
 
         Dim strength As Decimal = Math.Min((score / 500) * 100.0, 100.0)
-        Console.WriteLine(score)
         labelMessage.Text = "Your password is " & message & " with " & strength & "% strength!"
 
     End Sub
