@@ -1,6 +1,29 @@
 ﻿
 Public Class Form1
 
+    Dim CW As Integer = Me.Width ' Current Width
+    Dim CH As Integer = Me.Height ' Current Height
+    Dim IW As Integer = Me.Width ' Initial Width
+    Dim IH As Integer = Me.Height ' Initial Height
+
+    Private Sub Form1_Resize(ByVal sender As Object, _
+            ByVal e As System.EventArgs) Handles Me.Resize
+
+        Dim RW As Double = (Me.Width - CW) / CW ' Ratio change of width
+        Dim RH As Double = (Me.Height - CH) / CH ' Ratio change of height
+
+        For Each Ctrl As Control In Controls
+            Ctrl.Width += CInt(Ctrl.Width * RW)
+            Ctrl.Height += CInt(Ctrl.Height * RH)
+            Ctrl.Left += CInt(Ctrl.Left * RW)
+            Ctrl.Top += CInt(Ctrl.Top * RH)
+        Next
+
+        CW = Me.Width
+        CH = Me.Height
+
+    End Sub
+
     Private Sub checkboxShowPassword_CheckedChanged(sender As Object, e As EventArgs) Handles checkboxShowPassword.CheckedChanged
         If checkboxShowPassword.Checked = True Then
             textPassword.PasswordChar = ""
@@ -128,12 +151,5 @@ Public Class Form1
 
     End Sub
 
-    Private Sub lblLowercase_Click(sender As Object, e As EventArgs) Handles lblLowercase.Click
-
-    End Sub
-
-    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
-
-    End Sub
 End Class
 

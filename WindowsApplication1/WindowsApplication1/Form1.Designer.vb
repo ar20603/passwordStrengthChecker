@@ -66,7 +66,7 @@ Partial Class Form1
         Me.lblLowercase.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
         Me.lblLowercase.Image = CType(resources.GetObject("lblLowercase.Image"), System.Drawing.Image)
         Me.lblLowercase.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.lblLowercase.Location = New System.Drawing.Point(37, 200)
+        Me.lblLowercase.Location = New System.Drawing.Point(25, 200)
         Me.lblLowercase.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblLowercase.Name = "lblLowercase"
         Me.lblLowercase.Size = New System.Drawing.Size(111, 28)
@@ -92,7 +92,7 @@ Partial Class Form1
         Me.lblNumbers.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
         Me.lblNumbers.Image = CType(resources.GetObject("lblNumbers.Image"), System.Drawing.Image)
         Me.lblNumbers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.lblNumbers.Location = New System.Drawing.Point(377, 202)
+        Me.lblNumbers.Location = New System.Drawing.Point(356, 202)
         Me.lblNumbers.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblNumbers.Name = "lblNumbers"
         Me.lblNumbers.Size = New System.Drawing.Size(97, 28)
@@ -105,7 +105,7 @@ Partial Class Form1
         Me.lblSymbols.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
         Me.lblSymbols.Image = CType(resources.GetObject("lblSymbols.Image"), System.Drawing.Image)
         Me.lblSymbols.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.lblSymbols.Location = New System.Drawing.Point(534, 202)
+        Me.lblSymbols.Location = New System.Drawing.Point(506, 202)
         Me.lblSymbols.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblSymbols.Name = "lblSymbols"
         Me.lblSymbols.Size = New System.Drawing.Size(92, 28)
@@ -149,7 +149,6 @@ Partial Class Form1
         Me.labelMessage.Name = "labelMessage"
         Me.labelMessage.Size = New System.Drawing.Size(614, 23)
         Me.labelMessage.TabIndex = 11
-        Me.labelMessage.Text = "Your password is WEAK with 10% strength!"
         Me.labelMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'TextBox1
@@ -167,7 +166,7 @@ Partial Class Form1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(718, 419)
+        Me.ClientSize = New System.Drawing.Size(716, 461)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.labelMessage)
         Me.Controls.Add(Me.Button1)
@@ -180,6 +179,7 @@ Partial Class Form1
         Me.Controls.Add(Me.checkboxShowPassword)
         Me.Controls.Add(Me.textPassword)
         Me.Margin = New System.Windows.Forms.Padding(2)
+        Me.MinimumSize = New System.Drawing.Size(500, 500)
         Me.Name = "Form1"
         Me.Text = "a"
         Me.ResumeLayout(False)
