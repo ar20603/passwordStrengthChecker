@@ -30,7 +30,8 @@ Partial Class Form2
         '
         'Label2
         '
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!)
+        Me.Label2.Font = New System.Drawing.Font("Comic Sans MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.Navy
         Me.Label2.Location = New System.Drawing.Point(29, 26)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(85, 25)
@@ -40,30 +41,33 @@ Partial Class Form2
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!)
+        Me.Label1.Font = New System.Drawing.Font("Comic Sans MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.Navy
         Me.Label1.Location = New System.Drawing.Point(29, 57)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(79, 18)
+        Me.Label1.Size = New System.Drawing.Size(81, 23)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Password:"
         '
         'lblUsername
         '
         Me.lblUsername.AutoSize = True
-        Me.lblUsername.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!)
-        Me.lblUsername.Location = New System.Drawing.Point(120, 26)
+        Me.lblUsername.Font = New System.Drawing.Font("Comic Sans MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblUsername.ForeColor = System.Drawing.Color.Navy
+        Me.lblUsername.Location = New System.Drawing.Point(119, 26)
         Me.lblUsername.Name = "lblUsername"
-        Me.lblUsername.Size = New System.Drawing.Size(78, 18)
+        Me.lblUsername.Size = New System.Drawing.Size(80, 23)
         Me.lblUsername.TabIndex = 2
         Me.lblUsername.Text = "user.name"
         '
         'lblSaved
         '
         Me.lblSaved.AutoSize = True
-        Me.lblSaved.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!)
-        Me.lblSaved.Location = New System.Drawing.Point(120, 57)
+        Me.lblSaved.Font = New System.Drawing.Font("Comic Sans MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSaved.ForeColor = System.Drawing.Color.Navy
+        Me.lblSaved.Location = New System.Drawing.Point(120, 56)
         Me.lblSaved.Name = "lblSaved"
-        Me.lblSaved.Size = New System.Drawing.Size(106, 18)
+        Me.lblSaved.Size = New System.Drawing.Size(112, 23)
         Me.lblSaved.TabIndex = 3
         Me.lblSaved.Text = "user.password"
         '
@@ -72,12 +76,12 @@ Partial Class Form2
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(439, 135)
+        Me.ClientSize = New System.Drawing.Size(484, 161)
         Me.Controls.Add(Me.lblSaved)
         Me.Controls.Add(Me.lblUsername)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label2)
-        Me.MinimumSize = New System.Drawing.Size(100, 100)
+        Me.MinimumSize = New System.Drawing.Size(500, 200)
         Me.Name = "Form2"
         Me.Text = "Form2"
         Me.ResumeLayout(False)

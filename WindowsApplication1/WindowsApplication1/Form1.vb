@@ -25,14 +25,6 @@ Public Class Form1
 
     End Sub
 
-    Private Sub checkboxShowPassword_CheckedChanged(sender As Object, e As EventArgs) Handles checkboxShowPassword.CheckedChanged
-        If checkboxShowPassword.Checked = True Then
-            textPassword.PasswordChar = ""
-        Else
-            textPassword.PasswordChar = "*"
-        End If
-    End Sub
-
     Private Sub txtPassword_TextChanged(sender As Object, e As EventArgs) Handles textPassword.TextChanged
 
         ' Word dictionary for common words
@@ -40,7 +32,9 @@ Public Class Form1
         Dim lines = IO.File.ReadAllLines("G:\passwordStrengthChecker\WindowsApplication1\Media\dictionary.txt")
 
         For i = 0 To lines.Length - 1
-            wordDict.Add(lines(i), 1)
+            If Not wordDict.ContainsKey(lines(i)) Then
+                wordDict.Add(lines(i), 1)
+            End If
         Next
 
         ' Score Calculation
@@ -258,9 +252,7 @@ Public Class Form1
         If isSpace Then
             labelMessage.Text = "Invalid Password! Please don't use spaces."
             score = 0
-        End If
-
-        If wordDict.ContainsKey(password) Then
+        ElseIf wordDict.ContainsKey(password) Then
             score = 0
             labelMessage.Text = "Don't use common words as password! This will make your password weaker."
         ElseIf isCommon = True Then
@@ -269,22 +261,22 @@ Public Class Form1
         End If
 
         If score <= 20 Then
-            Me.BackColor = Color.FromArgb(192, 0, 0)
+            Me.BackColor = Color.IndianRed
             message = "VERY WEAK"
         ElseIf score <= 40 Then
-            Me.BackColor = Color.Red
+            Me.BackColor = Color.LightSalmon
             message = "WEAK"
         ElseIf score <= 60 Then
-            Me.BackColor = Color.FromArgb(192, 64, 0)
+            Me.BackColor = Color.FromArgb(255, 192, 128)
             message = "AVERAGE"
         ElseIf score <= 80 Then
-            Me.BackColor = Color.Yellow
+            Me.BackColor = Color.FromArgb(255, 255, 128)
             message = "GOOD"
         ElseIf score <= 100 Then
-            Me.BackColor = Color.Lime
+            Me.BackColor = Color.YellowGreen
             message = "STRONG"
         Else
-            Me.BackColor = Color.FromArgb(0, 192, 0)
+            Me.BackColor = Color.FromArgb(128, 255, 128)
             message = "VERY STRONG"
         End If
 
@@ -317,6 +309,14 @@ Public Class Form1
         OBJ.Show()
     End Sub
 
+    Private Sub checkboxShowPassword_CheckedChanged(sender As Object, e As EventArgs) Handles checkboxShowPassword.CheckedChanged
+        If checkboxShowPassword.Checked = True Then
+            textPassword.PasswordChar = ""
+        Else
+            textPassword.PasswordChar = "*"
+        End If
+    End Sub
+
     Private Sub btnSuggest_Click(sender As Object, e As EventArgs) Handles btnSuggest.Click
         Dim suggestedPassword As String = ""
         Dim Ch As Integer
@@ -339,7 +339,7 @@ Public Class Form1
             suggestedPassword = suggestedPassword & Sym
         Next
 
-        lblSuggested.Text = suggestedPassword
+        lblSuggested.Text = "You can use: " & suggestedPassword
     End Sub
 
 End Class

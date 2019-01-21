@@ -24,7 +24,6 @@ Partial Class Form1
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.textPassword = New System.Windows.Forms.TextBox()
-        Me.checkboxShowPassword = New System.Windows.Forms.CheckBox()
         Me.lblLowercase = New System.Windows.Forms.Label()
         Me.lblUppercase = New System.Windows.Forms.Label()
         Me.lblNumbers = New System.Windows.Forms.Label()
@@ -37,169 +36,221 @@ Partial Class Form1
         Me.btnMySavedPassword = New System.Windows.Forms.Button()
         Me.btnSuggest = New System.Windows.Forms.Button()
         Me.lblSuggested = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.checkboxShowPassword = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
         'textPassword
         '
-        Me.textPassword.BackColor = System.Drawing.Color.White
-        Me.textPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!)
-        Me.textPassword.Location = New System.Drawing.Point(33, 188)
-        Me.textPassword.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.textPassword.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.textPassword.Font = New System.Drawing.Font("Comic Sans MS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.textPassword.ForeColor = System.Drawing.Color.Navy
+        Me.textPassword.Location = New System.Drawing.Point(128, 155)
+        Me.textPassword.Margin = New System.Windows.Forms.Padding(2)
         Me.textPassword.MaxLength = 50
         Me.textPassword.Name = "textPassword"
         Me.textPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.textPassword.Size = New System.Drawing.Size(763, 28)
+        Me.textPassword.Size = New System.Drawing.Size(470, 28)
         Me.textPassword.TabIndex = 0
         Me.textPassword.TabStop = False
         Me.textPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'checkboxShowPassword
-        '
-        Me.checkboxShowPassword.AutoSize = True
-        Me.checkboxShowPassword.Location = New System.Drawing.Point(661, 162)
-        Me.checkboxShowPassword.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.checkboxShowPassword.Name = "checkboxShowPassword"
-        Me.checkboxShowPassword.Size = New System.Drawing.Size(129, 21)
-        Me.checkboxShowPassword.TabIndex = 1
-        Me.checkboxShowPassword.Text = "Show Password"
-        Me.checkboxShowPassword.UseVisualStyleBackColor = True
-        '
         'lblLowercase
         '
-        Me.lblLowercase.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.lblLowercase.Font = New System.Drawing.Font("Comic Sans MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblLowercase.ForeColor = System.Drawing.Color.Navy
         Me.lblLowercase.Image = CType(resources.GetObject("lblLowercase.Image"), System.Drawing.Image)
         Me.lblLowercase.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.lblLowercase.Location = New System.Drawing.Point(33, 246)
+        Me.lblLowercase.Location = New System.Drawing.Point(128, 218)
+        Me.lblLowercase.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblLowercase.Name = "lblLowercase"
-        Me.lblLowercase.Size = New System.Drawing.Size(148, 34)
+        Me.lblLowercase.Size = New System.Drawing.Size(117, 28)
         Me.lblLowercase.TabIndex = 4
         Me.lblLowercase.Text = "Lower case"
         Me.lblLowercase.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblUppercase
         '
-        Me.lblUppercase.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.lblUppercase.Font = New System.Drawing.Font("Comic Sans MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblUppercase.ForeColor = System.Drawing.Color.Navy
         Me.lblUppercase.Image = CType(resources.GetObject("lblUppercase.Image"), System.Drawing.Image)
         Me.lblUppercase.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.lblUppercase.Location = New System.Drawing.Point(249, 246)
+        Me.lblUppercase.Location = New System.Drawing.Point(264, 216)
+        Me.lblUppercase.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblUppercase.Name = "lblUppercase"
-        Me.lblUppercase.Size = New System.Drawing.Size(149, 34)
+        Me.lblUppercase.Size = New System.Drawing.Size(118, 28)
         Me.lblUppercase.TabIndex = 5
         Me.lblUppercase.Text = "Upper case"
         Me.lblUppercase.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblNumbers
         '
-        Me.lblNumbers.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.lblNumbers.Font = New System.Drawing.Font("Comic Sans MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNumbers.ForeColor = System.Drawing.Color.Navy
         Me.lblNumbers.Image = CType(resources.GetObject("lblNumbers.Image"), System.Drawing.Image)
         Me.lblNumbers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.lblNumbers.Location = New System.Drawing.Point(475, 249)
+        Me.lblNumbers.Location = New System.Drawing.Point(406, 216)
+        Me.lblNumbers.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblNumbers.Name = "lblNumbers"
-        Me.lblNumbers.Size = New System.Drawing.Size(129, 34)
+        Me.lblNumbers.Size = New System.Drawing.Size(102, 28)
         Me.lblNumbers.TabIndex = 6
         Me.lblNumbers.Text = "Numbers"
         Me.lblNumbers.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblSymbols
         '
-        Me.lblSymbols.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.lblSymbols.Font = New System.Drawing.Font("Comic Sans MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSymbols.ForeColor = System.Drawing.Color.Navy
         Me.lblSymbols.Image = CType(resources.GetObject("lblSymbols.Image"), System.Drawing.Image)
         Me.lblSymbols.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.lblSymbols.Location = New System.Drawing.Point(675, 249)
+        Me.lblSymbols.Location = New System.Drawing.Point(524, 215)
+        Me.lblSymbols.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblSymbols.Name = "lblSymbols"
-        Me.lblSymbols.Size = New System.Drawing.Size(123, 34)
+        Me.lblSymbols.Size = New System.Drawing.Size(97, 28)
         Me.lblSymbols.TabIndex = 7
         Me.lblSymbols.Text = "Symbols"
         Me.lblSymbols.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label1
         '
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!)
-        Me.Label1.Location = New System.Drawing.Point(247, 11)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Label1.Font = New System.Drawing.Font("Buxton Sketch", 20.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.Navy
+        Me.Label1.Location = New System.Drawing.Point(185, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(431, 38)
+        Me.Label1.Size = New System.Drawing.Size(323, 42)
         Me.Label1.TabIndex = 8
         Me.Label1.Text = "Password Strength Checker"
         '
         'Label2
         '
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!)
-        Me.Label2.Location = New System.Drawing.Point(29, 63)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label2.Font = New System.Drawing.Font("Comic Sans MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.Navy
+        Me.Label2.Location = New System.Drawing.Point(22, 51)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(903, 58)
+        Me.Label2.Size = New System.Drawing.Size(677, 47)
         Me.Label2.TabIndex = 9
-        Me.Label2.Text = "This program checks the strength of your password and give you valuable suggestio" & _
-    "ns to improve it. Type your password in the text box to trigger the program."
+        Me.Label2.Text = "This program checks the strength of your password and gives you valuable suggesti" & _
+    "ons to improve it. Type your username and password in the text box to trigger th" & _
+    "e program."
         '
         'btnSavePassword
         '
-        Me.btnSavePassword.Location = New System.Drawing.Point(805, 188)
-        Me.btnSavePassword.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnSavePassword.BackColor = System.Drawing.Color.Navy
+        Me.btnSavePassword.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnSavePassword.Font = New System.Drawing.Font("Buxton Sketch", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSavePassword.ForeColor = System.Drawing.Color.White
+        Me.btnSavePassword.Location = New System.Drawing.Point(604, 155)
         Me.btnSavePassword.Name = "btnSavePassword"
-        Me.btnSavePassword.Size = New System.Drawing.Size(100, 30)
+        Me.btnSavePassword.Size = New System.Drawing.Size(95, 28)
         Me.btnSavePassword.TabIndex = 10
         Me.btnSavePassword.Text = "Save"
-        Me.btnSavePassword.UseVisualStyleBackColor = True
+        Me.btnSavePassword.UseVisualStyleBackColor = False
         '
         'labelMessage
         '
         Me.labelMessage.Enabled = False
-        Me.labelMessage.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!)
-        Me.labelMessage.Location = New System.Drawing.Point(33, 218)
-        Me.labelMessage.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.labelMessage.Font = New System.Drawing.Font("Buxton Sketch", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.labelMessage.ForeColor = System.Drawing.Color.Navy
+        Me.labelMessage.Location = New System.Drawing.Point(85, 186)
         Me.labelMessage.Name = "labelMessage"
-        Me.labelMessage.Size = New System.Drawing.Size(819, 28)
+        Me.labelMessage.Size = New System.Drawing.Size(614, 23)
         Me.labelMessage.TabIndex = 11
         Me.labelMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'txtUsername
         '
-        Me.txtUsername.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!)
-        Me.txtUsername.Location = New System.Drawing.Point(33, 128)
-        Me.txtUsername.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtUsername.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtUsername.Font = New System.Drawing.Font("Comic Sans MS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtUsername.ForeColor = System.Drawing.Color.Navy
+        Me.txtUsername.Location = New System.Drawing.Point(128, 104)
         Me.txtUsername.Name = "txtUsername"
-        Me.txtUsername.Size = New System.Drawing.Size(763, 28)
+        Me.txtUsername.Size = New System.Drawing.Size(470, 28)
         Me.txtUsername.TabIndex = 12
         Me.txtUsername.Tag = ""
         Me.txtUsername.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'btnMySavedPassword
         '
-        Me.btnMySavedPassword.Location = New System.Drawing.Point(805, 128)
-        Me.btnMySavedPassword.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnMySavedPassword.BackColor = System.Drawing.Color.Navy
+        Me.btnMySavedPassword.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnMySavedPassword.Font = New System.Drawing.Font("Buxton Sketch", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMySavedPassword.ForeColor = System.Drawing.Color.White
+        Me.btnMySavedPassword.Location = New System.Drawing.Point(604, 104)
         Me.btnMySavedPassword.Name = "btnMySavedPassword"
-        Me.btnMySavedPassword.Size = New System.Drawing.Size(100, 30)
+        Me.btnMySavedPassword.Size = New System.Drawing.Size(95, 28)
         Me.btnMySavedPassword.TabIndex = 13
         Me.btnMySavedPassword.Text = "Show saved"
-        Me.btnMySavedPassword.UseVisualStyleBackColor = True
+        Me.btnMySavedPassword.UseVisualStyleBackColor = False
         '
         'btnSuggest
         '
-        Me.btnSuggest.Location = New System.Drawing.Point(47, 304)
-        Me.btnSuggest.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnSuggest.BackColor = System.Drawing.Color.Navy
+        Me.btnSuggest.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnSuggest.Font = New System.Drawing.Font("Buxton Sketch", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSuggest.ForeColor = System.Drawing.Color.White
+        Me.btnSuggest.Location = New System.Drawing.Point(26, 260)
         Me.btnSuggest.Name = "btnSuggest"
-        Me.btnSuggest.Size = New System.Drawing.Size(174, 39)
+        Me.btnSuggest.Size = New System.Drawing.Size(146, 32)
         Me.btnSuggest.TabIndex = 14
-        Me.btnSuggest.Text = "Suugest a password"
-        Me.btnSuggest.UseVisualStyleBackColor = True
+        Me.btnSuggest.Text = "Suggest Password"
+        Me.btnSuggest.UseVisualStyleBackColor = False
         '
         'lblSuggested
         '
-        Me.lblSuggested.AutoSize = True
-        Me.lblSuggested.Location = New System.Drawing.Point(249, 316)
-        Me.lblSuggested.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblSuggested.Font = New System.Drawing.Font("Comic Sans MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSuggested.ForeColor = System.Drawing.Color.Navy
+        Me.lblSuggested.Location = New System.Drawing.Point(187, 259)
         Me.lblSuggested.Name = "lblSuggested"
-        Me.lblSuggested.Size = New System.Drawing.Size(0, 17)
+        Me.lblSuggested.Size = New System.Drawing.Size(512, 32)
         Me.lblSuggested.TabIndex = 15
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Comic Sans MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.Navy
+        Me.Label4.Location = New System.Drawing.Point(36, 106)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(80, 23)
+        Me.Label4.TabIndex = 16
+        Me.Label4.Text = "Username"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Comic Sans MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.Color.Navy
+        Me.Label5.Location = New System.Drawing.Point(36, 157)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(76, 23)
+        Me.Label5.TabIndex = 17
+        Me.Label5.Text = "Password"
+        '
+        'checkboxShowPassword
+        '
+        Me.checkboxShowPassword.AutoSize = True
+        Me.checkboxShowPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.checkboxShowPassword.Font = New System.Drawing.Font("Comic Sans MS", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.checkboxShowPassword.ForeColor = System.Drawing.Color.Navy
+        Me.checkboxShowPassword.Location = New System.Drawing.Point(487, 134)
+        Me.checkboxShowPassword.Name = "checkboxShowPassword"
+        Me.checkboxShowPassword.Size = New System.Drawing.Size(106, 21)
+        Me.checkboxShowPassword.TabIndex = 18
+        Me.checkboxShowPassword.Text = "Show password"
+        Me.checkboxShowPassword.UseVisualStyleBackColor = True
         '
         'Form1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(955, 567)
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.ClientSize = New System.Drawing.Size(716, 361)
+        Me.Controls.Add(Me.checkboxShowPassword)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.lblSuggested)
         Me.Controls.Add(Me.btnSuggest)
         Me.Controls.Add(Me.btnMySavedPassword)
@@ -212,10 +263,10 @@ Partial Class Form1
         Me.Controls.Add(Me.lblNumbers)
         Me.Controls.Add(Me.lblUppercase)
         Me.Controls.Add(Me.lblLowercase)
-        Me.Controls.Add(Me.checkboxShowPassword)
         Me.Controls.Add(Me.textPassword)
-        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.MinimumSize = New System.Drawing.Size(661, 605)
+        Me.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.Margin = New System.Windows.Forms.Padding(2)
+        Me.MinimumSize = New System.Drawing.Size(700, 400)
         Me.Name = "Form1"
         Me.Text = "a"
         Me.ResumeLayout(False)
@@ -223,7 +274,6 @@ Partial Class Form1
 
     End Sub
     Friend WithEvents textPassword As System.Windows.Forms.TextBox
-    Friend WithEvents checkboxShowPassword As System.Windows.Forms.CheckBox
     Friend WithEvents lblLowercase As System.Windows.Forms.Label
     Friend WithEvents lblUppercase As System.Windows.Forms.Label
     Friend WithEvents lblNumbers As System.Windows.Forms.Label
@@ -236,5 +286,8 @@ Partial Class Form1
     Friend WithEvents btnMySavedPassword As System.Windows.Forms.Button
     Friend WithEvents btnSuggest As System.Windows.Forms.Button
     Friend WithEvents lblSuggested As System.Windows.Forms.Label
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents checkboxShowPassword As System.Windows.Forms.CheckBox
 
 End Class
