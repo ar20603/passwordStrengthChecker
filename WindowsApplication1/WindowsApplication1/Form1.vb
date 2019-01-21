@@ -29,7 +29,7 @@ Public Class Form1
 
         ' Word dictionary for common words
         Dim wordDict As New Dictionary(Of String, Integer)
-        Dim lines = IO.File.ReadAllLines("G:\passwordStrengthChecker\WindowsApplication1\Media\dictionary.txt")
+        Dim lines = IO.File.ReadAllLines(My.Application.Info.DirectoryPath & "\..\..\..\Media\dictionary.txt")
 
         For i = 0 To lines.Length - 1
             If Not wordDict.ContainsKey(lines(i)) Then
@@ -339,7 +339,11 @@ Public Class Form1
             suggestedPassword = suggestedPassword & Sym
         Next
 
-        lblSuggested.Text = "You can use: " & suggestedPassword
+        lblSuggested.Text = suggestedPassword
+    End Sub
+
+    Private Sub btnUseThis_Click(sender As Object, e As EventArgs) Handles btnUseThis.Click
+        textPassword.Text = lblSuggested.Text
     End Sub
 
 End Class
