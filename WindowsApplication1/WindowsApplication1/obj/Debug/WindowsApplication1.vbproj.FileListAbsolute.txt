@@ -19,3 +19,14 @@ G:\passwordStrengthChecker\WindowsApplication1\WindowsApplication1\obj\Debug\Win
 G:\passwordStrengthChecker\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.Resources.resources
 G:\passwordStrengthChecker\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.vbproj.GenerateResource.Cache
 G:\passwordStrengthChecker\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.Form2.resources
+C:\Users\Vinit\Desktop\aboutvisualbasics\passwordStrengthChecker-master\WindowsApplication1\WindowsApplication1\bin\Debug\WindowsApplication1.exe.config
+C:\Users\Vinit\Desktop\aboutvisualbasics\passwordStrengthChecker-master\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.exe
+C:\Users\Vinit\Desktop\aboutvisualbasics\passwordStrengthChecker-master\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.xml
+C:\Users\Vinit\Desktop\aboutvisualbasics\passwordStrengthChecker-master\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.pdb
+C:\Users\Vinit\Desktop\aboutvisualbasics\passwordStrengthChecker-master\WindowsApplication1\WindowsApplication1\bin\Debug\WindowsApplication1.exe
+C:\Users\Vinit\Desktop\aboutvisualbasics\passwordStrengthChecker-master\WindowsApplication1\WindowsApplication1\bin\Debug\WindowsApplication1.pdb
+C:\Users\Vinit\Desktop\aboutvisualbasics\passwordStrengthChecker-master\WindowsApplication1\WindowsApplication1\bin\Debug\WindowsApplication1.xml
+C:\Users\Vinit\Desktop\aboutvisualbasics\passwordStrengthChecker-master\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.Form1.resources
+C:\Users\Vinit\Desktop\aboutvisualbasics\passwordStrengthChecker-master\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.Form2.resources
+C:\Users\Vinit\Desktop\aboutvisualbasics\passwordStrengthChecker-master\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.Resources.resources
+C:\Users\Vinit\Desktop\aboutvisualbasics\passwordStrengthChecker-master\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.vbproj.GenerateResource.Cache
