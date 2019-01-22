@@ -6,6 +6,8 @@ Public Class Form1
     Dim IW As Integer = Me.Width    ' Initial Width  of Form1
     Dim IH As Integer = Me.Height   ' Initial Height  of Form1
 
+    Dim score As Integer
+    Dim message As String
 
     ' Declaring a dictionary to store username as key and his/her password as its value
 
@@ -40,7 +42,7 @@ Public Class Form1
 
     ' Function that runs again when the text in the txtPassword is changed
 
-    Private Sub txtPassword_TextChanged(sender As Object, e As EventArgs) Handles textPassword.TextChanged
+    Private Sub txtPassword_TextChanged(sender As Object, e As EventArgs) Handles textPassword.TextChanged, txtUsername.TextChanged
 
 
         ' Declaring a dictionary "wordDict" to add common passwords 
@@ -64,8 +66,8 @@ Public Class Form1
 
         Dim password As String = textPassword.Text
         Dim len As Integer = textPassword.TextLength
-        Dim score As Integer = 0
-        Dim message As String
+        score = 0 'Dim score As Integer = 0
+        'Dim message As String
 
         ' Variables declaration of the components of paasswords and its properties
 
@@ -74,7 +76,6 @@ Public Class Form1
         Dim numbers As Integer = 0      ' number of integers in password 
         Dim symbols As Integer = 0      ' number of special in the password
         Dim requirements As Integer = 0     ' basic requirements for a strong password 
-        Dim repeatChars As Integer = 0      ' number of repeating characters in the password 
         Dim consecChars As Integer = 0      ' number of consecutive characters in the password
         Dim seqChars As Integer = 0         ' number of sequential characters in the password{eq:abcde}                  '
         Dim middleNumOrSym As Integer = 0   ' number of symbols in the middle of the password 
@@ -135,7 +136,7 @@ Public Class Form1
             End If
         Next
 
-       
+
 
         '  Checking the consecutive Letters in the string and incrementing the value of consecChars
         Dim j As Integer = 1
@@ -287,7 +288,7 @@ Public Class Form1
         ' Checking if substrings of password contain username to weaken the passsword strength
         For j = 0 To password.Length - 1
             For k = 1 To password.Length - j
-                If password.Substring(j, k).ToLower() = txtUsername.Text.ToLower() Then
+                If password.Substring(j, k).ToLower() = txtUsername.Text.ToLower() Or password.Substring(j, k).ToLower() = StrReverse(txtUsername.Text.ToLower()) Then
                     isUsernameInPassword = True
                 End If
             Next
@@ -310,7 +311,7 @@ Public Class Form1
             labelMessage.Text = "Don't use common words as password! This will make your password weaker."
         ElseIf isUsernameInPassword = True Then
             score = 0
-            labelMessage.Text = "Don't use your username in your password! This will make your password vulnerable towards cracking."
+            labelMessage.Text = "Don't use your username in your password! This will make your password vulnerable."
         ElseIf isCommon = True Then
             score /= 2
             labelMessage.Text = "Don't use common words in your password! This will make your password weaker."
