@@ -82,7 +82,7 @@ Public Class Form1
         Dim lettersOnly As Boolean = True   ' to check the presence of only letters in the password
         Dim numbersOnly As Boolean = True   ' to check the presence of only numbers in the password
         Dim isCommon As Boolean = False     ' to check the presence of common words from the dictionary in the password
-
+        Dim isUsernameInPassword As Boolean = False    ' to check if username is used in password
 
 
         ' Assigning value to the boolean declared above
@@ -284,6 +284,15 @@ Public Class Form1
         Next
 
 
+        ' Checking if substrings of password contain username to weaken the passsword strength
+        For j = 0 To password.Length - 1
+            For k = 1 To password.Length - j
+                If password.Substring(j, k).ToLower() = txtUsername.Text.ToLower() Then
+                    isUsernameInPassword = True
+                End If
+            Next
+        Next
+
         ' SCORE NORMALISATION (minimum value of score is zero)
 
         score = Math.Max(0, score)
@@ -299,6 +308,9 @@ Public Class Form1
         ElseIf wordDict.ContainsKey(password) Then
             score = 0
             labelMessage.Text = "Don't use common words as password! This will make your password weaker."
+        ElseIf isUsernameInPassword = True Then
+            score = 0
+            labelMessage.Text = "Don't use your username in your password! This will make your password vulnerable towards cracking."
         ElseIf isCommon = True Then
             score /= 2
             labelMessage.Text = "Don't use common words in your password! This will make your password weaker."
@@ -349,7 +361,7 @@ Public Class Form1
 
         '  Printing the message to show the strength of the password on the GUI
 
-        If Not isSpace And Not isCommon And Not wordDict.ContainsKey(password) Then
+        If Not isSpace And Not isCommon And Not isUsernameInPassword And Not wordDict.ContainsKey(password) Then
             labelMessage.Text = "Your password is " & message & " with " & strength & "% strength!"
         End If
     End Sub
@@ -357,16 +369,36 @@ Public Class Form1
 
     ' Taking a button to save the password to the dictionary corresponding to its username by clicking on the button 
     Private Sub btnSavePassword_Click(sender As Object, e As EventArgs) Handles btnSavePassword.Click
-        If textPassword.Text = "" Then
-            Console.WriteLine("no text")
-        Else
-            If dictSavedPasswords.ContainsKey(txtUsername.Text) Then
-                dictSavedPasswords(txtUsername.Text) = textPassword.Text
-            Else
-                dictSavedPasswords.Add(txtUsername.Text, textPassword.Text)
-            End If
 
+        Dim isSpaceInPassword As Boolean = False
+        Dim isSpaceInUsername As Boolean = False
+
+        For Each c In textPassword.Text
+            If c = " " Then
+                isSpaceInPassword = True
+            End If
+        Next
+
+        For Each c In txtUsername.Text
+            If c = " " Then
+                isSpaceInUsername = True
+            End If
+        Next
+
+        If txtUsername.Text = "" Then
+            labelMessage.Text = "Please input username first!"
+        ElseIf textPassword.Text = "" Then
+            labelMessage.Text = "Please input password first!"
+        ElseIf isSpaceInUsername Then
+            labelMessage.Text = "Please input a valid username without spaces"
+        ElseIf isSpaceInPassword Then
+            labelMessage.Text = "Please input a valid password without spaces"
+        ElseIf dictSavedPasswords.ContainsKey(txtUsername.Text) Then
+            dictSavedPasswords(txtUsername.Text) = textPassword.Text
+        Else
+            dictSavedPasswords.Add(txtUsername.Text, textPassword.Text)
         End If
+
 
     End Sub
 
@@ -429,5 +461,8 @@ Public Class Form1
         textPassword.Text = lblSuggested.Text
     End Sub
 
+    Private Sub labelMessage_Click(sender As Object, e As EventArgs) Handles labelMessage.Click
+
+    End Sub
 End Class
 

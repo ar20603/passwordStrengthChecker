@@ -47,12 +47,12 @@ Partial Class Form1
         Me.textPassword.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.textPassword.Font = New System.Drawing.Font("Comic Sans MS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.textPassword.ForeColor = System.Drawing.Color.Navy
-        Me.textPassword.Location = New System.Drawing.Point(128, 203)
-        Me.textPassword.Margin = New System.Windows.Forms.Padding(2)
+        Me.textPassword.Location = New System.Drawing.Point(171, 250)
+        Me.textPassword.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.textPassword.MaxLength = 50
         Me.textPassword.Name = "textPassword"
         Me.textPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.textPassword.Size = New System.Drawing.Size(470, 28)
+        Me.textPassword.Size = New System.Drawing.Size(625, 34)
         Me.textPassword.TabIndex = 0
         Me.textPassword.TabStop = False
         Me.textPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -63,10 +63,9 @@ Partial Class Form1
         Me.lblLowercase.ForeColor = System.Drawing.Color.Navy
         Me.lblLowercase.Image = CType(resources.GetObject("lblLowercase.Image"), System.Drawing.Image)
         Me.lblLowercase.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.lblLowercase.Location = New System.Drawing.Point(128, 311)
-        Me.lblLowercase.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblLowercase.Location = New System.Drawing.Point(171, 383)
         Me.lblLowercase.Name = "lblLowercase"
-        Me.lblLowercase.Size = New System.Drawing.Size(117, 28)
+        Me.lblLowercase.Size = New System.Drawing.Size(156, 34)
         Me.lblLowercase.TabIndex = 4
         Me.lblLowercase.Text = "Lower case"
         Me.lblLowercase.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -77,10 +76,9 @@ Partial Class Form1
         Me.lblUppercase.ForeColor = System.Drawing.Color.Navy
         Me.lblUppercase.Image = CType(resources.GetObject("lblUppercase.Image"), System.Drawing.Image)
         Me.lblUppercase.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.lblUppercase.Location = New System.Drawing.Point(264, 309)
-        Me.lblUppercase.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblUppercase.Location = New System.Drawing.Point(352, 380)
         Me.lblUppercase.Name = "lblUppercase"
-        Me.lblUppercase.Size = New System.Drawing.Size(118, 28)
+        Me.lblUppercase.Size = New System.Drawing.Size(157, 34)
         Me.lblUppercase.TabIndex = 5
         Me.lblUppercase.Text = "Upper case"
         Me.lblUppercase.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -91,10 +89,9 @@ Partial Class Form1
         Me.lblNumbers.ForeColor = System.Drawing.Color.Navy
         Me.lblNumbers.Image = CType(resources.GetObject("lblNumbers.Image"), System.Drawing.Image)
         Me.lblNumbers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.lblNumbers.Location = New System.Drawing.Point(406, 309)
-        Me.lblNumbers.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblNumbers.Location = New System.Drawing.Point(541, 380)
         Me.lblNumbers.Name = "lblNumbers"
-        Me.lblNumbers.Size = New System.Drawing.Size(102, 28)
+        Me.lblNumbers.Size = New System.Drawing.Size(136, 34)
         Me.lblNumbers.TabIndex = 6
         Me.lblNumbers.Text = "Numbers"
         Me.lblNumbers.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -105,10 +102,9 @@ Partial Class Form1
         Me.lblSymbols.ForeColor = System.Drawing.Color.Navy
         Me.lblSymbols.Image = CType(resources.GetObject("lblSymbols.Image"), System.Drawing.Image)
         Me.lblSymbols.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.lblSymbols.Location = New System.Drawing.Point(524, 308)
-        Me.lblSymbols.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblSymbols.Location = New System.Drawing.Point(699, 379)
         Me.lblSymbols.Name = "lblSymbols"
-        Me.lblSymbols.Size = New System.Drawing.Size(97, 28)
+        Me.lblSymbols.Size = New System.Drawing.Size(129, 34)
         Me.lblSymbols.TabIndex = 7
         Me.lblSymbols.Text = "Symbols"
         Me.lblSymbols.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -118,9 +114,10 @@ Partial Class Form1
         Me.Label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Label1.Font = New System.Drawing.Font("Buxton Sketch", 20.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.Navy
-        Me.Label1.Location = New System.Drawing.Point(185, 9)
+        Me.Label1.Location = New System.Drawing.Point(247, 11)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(323, 42)
+        Me.Label1.Size = New System.Drawing.Size(431, 52)
         Me.Label1.TabIndex = 8
         Me.Label1.Text = "Password Strength Checker"
         '
@@ -128,9 +125,10 @@ Partial Class Form1
         '
         Me.Label2.Font = New System.Drawing.Font("Comic Sans MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Navy
-        Me.Label2.Location = New System.Drawing.Point(22, 57)
+        Me.Label2.Location = New System.Drawing.Point(29, 70)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(677, 47)
+        Me.Label2.Size = New System.Drawing.Size(903, 58)
         Me.Label2.TabIndex = 9
         Me.Label2.Text = "This program checks the strength of your password and gives you valuable suggesti" & _
     "ons to improve it. Type your username and password in the text box to trigger th" & _
@@ -142,9 +140,10 @@ Partial Class Form1
         Me.btnSavePassword.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnSavePassword.Font = New System.Drawing.Font("Buxton Sketch", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSavePassword.ForeColor = System.Drawing.Color.White
-        Me.btnSavePassword.Location = New System.Drawing.Point(604, 203)
+        Me.btnSavePassword.Location = New System.Drawing.Point(805, 250)
+        Me.btnSavePassword.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnSavePassword.Name = "btnSavePassword"
-        Me.btnSavePassword.Size = New System.Drawing.Size(95, 28)
+        Me.btnSavePassword.Size = New System.Drawing.Size(127, 34)
         Me.btnSavePassword.TabIndex = 10
         Me.btnSavePassword.Text = "Save"
         Me.btnSavePassword.UseVisualStyleBackColor = False
@@ -154,9 +153,10 @@ Partial Class Form1
         Me.labelMessage.Enabled = False
         Me.labelMessage.Font = New System.Drawing.Font("Buxton Sketch", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.labelMessage.ForeColor = System.Drawing.Color.Navy
-        Me.labelMessage.Location = New System.Drawing.Point(75, 265)
+        Me.labelMessage.Location = New System.Drawing.Point(100, 326)
+        Me.labelMessage.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.labelMessage.Name = "labelMessage"
-        Me.labelMessage.Size = New System.Drawing.Size(614, 23)
+        Me.labelMessage.Size = New System.Drawing.Size(819, 28)
         Me.labelMessage.TabIndex = 11
         Me.labelMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -165,9 +165,10 @@ Partial Class Form1
         Me.txtUsername.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtUsername.Font = New System.Drawing.Font("Comic Sans MS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtUsername.ForeColor = System.Drawing.Color.Navy
-        Me.txtUsername.Location = New System.Drawing.Point(128, 130)
+        Me.txtUsername.Location = New System.Drawing.Point(171, 160)
+        Me.txtUsername.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtUsername.Name = "txtUsername"
-        Me.txtUsername.Size = New System.Drawing.Size(470, 28)
+        Me.txtUsername.Size = New System.Drawing.Size(625, 34)
         Me.txtUsername.TabIndex = 12
         Me.txtUsername.Tag = ""
         Me.txtUsername.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -178,9 +179,10 @@ Partial Class Form1
         Me.btnMySavedPassword.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnMySavedPassword.Font = New System.Drawing.Font("Buxton Sketch", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnMySavedPassword.ForeColor = System.Drawing.Color.White
-        Me.btnMySavedPassword.Location = New System.Drawing.Point(604, 130)
+        Me.btnMySavedPassword.Location = New System.Drawing.Point(805, 160)
+        Me.btnMySavedPassword.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnMySavedPassword.Name = "btnMySavedPassword"
-        Me.btnMySavedPassword.Size = New System.Drawing.Size(95, 28)
+        Me.btnMySavedPassword.Size = New System.Drawing.Size(127, 34)
         Me.btnMySavedPassword.TabIndex = 13
         Me.btnMySavedPassword.Text = "Show saved"
         Me.btnMySavedPassword.UseVisualStyleBackColor = False
@@ -191,9 +193,10 @@ Partial Class Form1
         Me.btnSuggest.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnSuggest.Font = New System.Drawing.Font("Buxton Sketch", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSuggest.ForeColor = System.Drawing.Color.White
-        Me.btnSuggest.Location = New System.Drawing.Point(26, 388)
+        Me.btnSuggest.Location = New System.Drawing.Point(35, 478)
+        Me.btnSuggest.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnSuggest.Name = "btnSuggest"
-        Me.btnSuggest.Size = New System.Drawing.Size(146, 32)
+        Me.btnSuggest.Size = New System.Drawing.Size(195, 39)
         Me.btnSuggest.TabIndex = 14
         Me.btnSuggest.Text = "Suggest Password"
         Me.btnSuggest.UseVisualStyleBackColor = False
@@ -202,9 +205,10 @@ Partial Class Form1
         '
         Me.lblSuggested.Font = New System.Drawing.Font("Comic Sans MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblSuggested.ForeColor = System.Drawing.Color.Navy
-        Me.lblSuggested.Location = New System.Drawing.Point(187, 387)
+        Me.lblSuggested.Location = New System.Drawing.Point(249, 476)
+        Me.lblSuggested.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblSuggested.Name = "lblSuggested"
-        Me.lblSuggested.Size = New System.Drawing.Size(411, 32)
+        Me.lblSuggested.Size = New System.Drawing.Size(548, 39)
         Me.lblSuggested.TabIndex = 15
         '
         'Label4
@@ -212,9 +216,10 @@ Partial Class Form1
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Comic Sans MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.Navy
-        Me.Label4.Location = New System.Drawing.Point(36, 132)
+        Me.Label4.Location = New System.Drawing.Point(48, 162)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(80, 23)
+        Me.Label4.Size = New System.Drawing.Size(104, 28)
         Me.Label4.TabIndex = 16
         Me.Label4.Text = "Username"
         '
@@ -223,9 +228,10 @@ Partial Class Form1
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Comic Sans MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.Navy
-        Me.Label5.Location = New System.Drawing.Point(36, 205)
+        Me.Label5.Location = New System.Drawing.Point(48, 252)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(76, 23)
+        Me.Label5.Size = New System.Drawing.Size(99, 28)
         Me.Label5.TabIndex = 17
         Me.Label5.Text = "Password"
         '
@@ -235,9 +241,10 @@ Partial Class Form1
         Me.checkboxShowPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.checkboxShowPassword.Font = New System.Drawing.Font("Comic Sans MS", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.checkboxShowPassword.ForeColor = System.Drawing.Color.Navy
-        Me.checkboxShowPassword.Location = New System.Drawing.Point(487, 179)
+        Me.checkboxShowPassword.Location = New System.Drawing.Point(649, 220)
+        Me.checkboxShowPassword.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.checkboxShowPassword.Name = "checkboxShowPassword"
-        Me.checkboxShowPassword.Size = New System.Drawing.Size(106, 21)
+        Me.checkboxShowPassword.Size = New System.Drawing.Size(133, 24)
         Me.checkboxShowPassword.TabIndex = 18
         Me.checkboxShowPassword.Text = "Show password"
         Me.checkboxShowPassword.UseVisualStyleBackColor = True
@@ -248,20 +255,21 @@ Partial Class Form1
         Me.btnUseThis.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnUseThis.Font = New System.Drawing.Font("Buxton Sketch", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnUseThis.ForeColor = System.Drawing.Color.White
-        Me.btnUseThis.Location = New System.Drawing.Point(604, 387)
+        Me.btnUseThis.Location = New System.Drawing.Point(805, 476)
+        Me.btnUseThis.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnUseThis.Name = "btnUseThis"
-        Me.btnUseThis.Size = New System.Drawing.Size(75, 33)
+        Me.btnUseThis.Size = New System.Drawing.Size(100, 41)
         Me.btnUseThis.TabIndex = 19
         Me.btnUseThis.Text = "Use This"
         Me.btnUseThis.UseVisualStyleBackColor = False
         '
         'Form1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.ClientSize = New System.Drawing.Size(716, 461)
+        Me.ClientSize = New System.Drawing.Size(955, 567)
         Me.Controls.Add(Me.btnUseThis)
         Me.Controls.Add(Me.checkboxShowPassword)
         Me.Controls.Add(Me.Label5)
@@ -280,8 +288,8 @@ Partial Class Form1
         Me.Controls.Add(Me.lblLowercase)
         Me.Controls.Add(Me.textPassword)
         Me.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Margin = New System.Windows.Forms.Padding(2)
-        Me.MinimumSize = New System.Drawing.Size(700, 500)
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.MinimumSize = New System.Drawing.Size(927, 605)
         Me.Name = "Form1"
         Me.Text = "a"
         Me.ResumeLayout(False)
