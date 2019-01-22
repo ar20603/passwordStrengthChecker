@@ -71,33 +71,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to love
-        '''qwerty
-        '''qwertyuiop
-        '''asdf
-        '''asdfghjkl
-        '''zxcv
-        '''password 
-        '''passwd
-        '''1234
-        '''123456
-        '''1234567890
-        '''dragon
-        '''pussy
-        '''baseball
-        '''iloveyou
-        '''ihateyou
-        '''football
-        '''696969
-        '''shadow
-        '''jennifer
-        '''1111
-        '''111111
-        '''000000
-        '''superman
-        '''batman
-        '''george
-        '''jessica.
+        '''  Looks up a localized string similar to ../../../Media/dictionary.txt.
         '''</summary>
         Friend ReadOnly Property dictionary() As String
             Get
@@ -112,6 +86,15 @@ Namespace My.Resources
             Get
                 Dim obj As Object = ResourceManager.GetObject("tick", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to love        ''' qwerty        ''' qwertyuiop        ''' asdf        ''' asdfghjkl        ''' zxcv        ''' password         ''' passwd        ''' dragon        ''' pussy        ''' baseball        ''' iloveyou        ''' ihateyou        ''' football        ''' shadow        ''' jennifer        ''' superman        ''' batman        ''' george        ''' jessica        ''' asshole        ''' pepper        ''' maggie        ''' iitguwhati        ''' iitg        ''' cse        ''' computer        ''' orange        ''' username        ''' myname        ''' kiss        ''' fuck        ''' science        ''' ronaldo        ''' messy        ''' messie        ''' virat        ''' sachin        ''' prince        ''' guitar        ''' alcheringa        ''' chelsea        ''' master        ''' dontknow        ''' hacker        ''' fuckme        ''' iwantyou        ''' iluvu        ''' bastard        ''' test        ''' checker        ''' passwordstrengthchecker        ''' pubg        ''' dynamo        ''' sexy        ''' aaaaa        ''' spyder        ''' spiderman        ''' ironman        '''  [rest of string was truncated]&quot;;.
+        '''</summary>
+        Friend ReadOnly Property words() As String
+            Get
+                Return ResourceManager.GetString("words", resourceCulture)
             End Get
         End Property
     End Module

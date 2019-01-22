@@ -50,14 +50,13 @@ Public Class Form1
 
 
         ' Taking the words form the file "dictionary.txt" and inserting all the common words to the dictionary "wordDict" 
-        Dim lines = My.Resources.words
-        Dim words() As String = lines.Split(New Char() {" "c})
+        Dim lines = IO.File.ReadAllLines(My.Resources.dictionary)
+        Console.WriteLine(lines(0))
 
         ' Loop to insert words in the dictionary "wordDic" with password as key and its value 1 after reading each line from the file
-        For i = 0 To words.Length - 1
-            Dim word As String = words(i).Substring(0, words(i).Length - 1)
-            If Not wordDict.ContainsKey(word) Then
-                wordDict.Add(word, 1)
+        For i = 0 To lines.Length - 1
+            If Not wordDict.ContainsKey(lines(i)) Then
+                wordDict.Add(lines(i), 1)
             End If
         Next
 
@@ -66,6 +65,7 @@ Public Class Form1
         ' Variable declaration of password ,len(length of password),score(to decide the strength of the password) ,message(string)
 
         Dim password As String = textPassword.Text
+        Dim len As Integer = textPassword.TextLength
         score = 0 'Dim score As Integer = 0
         'Dim message As String
 
@@ -85,30 +85,6 @@ Public Class Form1
         Dim isCommon As Boolean = False     ' to check the presence of common words from the dictionary in the password
         Dim isUsernameInPassword As Boolean = False    ' to check if username is used in password
 
-
-        ' Applying loop to find the number of consecutive characters in the string
-        Dim j As Integer = 1
-        While j < password.Length
-            Dim num As Integer = 0
-            While j < password.Length
-                If password.Chars(j) = password.Chars(j - 1) Then
-                    num += 1
-                    j += 1
-                Else
-                    Exit While
-                End If
-            End While
-            j += 1
-            If num + 1 >= 2 Then
-                Dim i As Integer = j - 1
-                password = password.Remove(j - num - 1, num)
-            ElseIf num > 0 Then
-                consecChars += (num + 1)
-            End If
-        End While
-
-
-        Dim len As Integer = password.Length
 
         ' Assigning value to the boolean declared above
         For Each c In password
@@ -161,6 +137,27 @@ Public Class Form1
         Next
 
 
+
+        '  Checking the consecutive Letters in the string and incrementing the value of consecChars
+        Dim j As Integer = 1
+
+        ' Applying loop to find the number of consecutive characters in the string
+        While j < password.Length
+            Dim num As Integer = 0
+            While j < password.Length
+                If password.Chars(j) = password.Chars(j - 1) Then
+                    num += 1
+                    j += 1
+                Else
+                    Exit While
+                End If
+            End While
+            j += 1
+            If num > 0 Then
+                consecChars += (num + 1)
+            End If
+        End While
+
         '  Checking the Sequence of Letters and incrementing the seqChars according to its number
         j = 1
 
@@ -192,6 +189,7 @@ Public Class Form1
 
         ' Generating score according to the components and properties of password by proper points
         score += len * 4
+        Console.Write(score & " ")
 
 
         ' Changing the tick and cross mark of the components of passwords in the GUI with the presence of corresponding components 
@@ -202,6 +200,7 @@ Public Class Form1
         Else
             lblUppercase.Image = My.Resources.cross
         End If
+        Console.Write(score & " ")
 
         If lowercase > 0 Then
             lblLowercase.Image = My.Resources.tick
@@ -209,6 +208,7 @@ Public Class Form1
         Else
             lblLowercase.Image = My.Resources.cross
         End If
+        Console.Write(score & " ")
 
         If numbers > 0 Then
             lblNumbers.Image = My.Resources.tick
@@ -222,21 +222,25 @@ Public Class Form1
             lblSymbols.Image = My.Resources.cross
         End If
 
-
-        score += numbers * 2
-
+        If lowercase > 0 Or uppercase > 0 Or symbols > 0 Then
+            score += numbers * 2
+        End If
+        Console.Write(score & " ")
 
         score += symbols * 4
+        Console.Write(score & " ")
 
 
         ' Incrementing score with proper points with the presence of symbols in the middle and requirements in the password
 
         score += middleNumOrSym * 2
+        Console.Write(score & " ")
 
 
         If requirements >= 5 Then
             score += requirements * 2
         End If
+        Console.Write(score & " ")
 
 
 
@@ -248,21 +252,26 @@ Public Class Form1
         If lettersOnly Then
             score -= (lowercase + uppercase)
         End If
+        Console.Write(score & " ")
 
 
         If numbersOnly Then
             score -= numbers
         End If
+        Console.Write(score & " ")
 
 
         ' Deduction of score by proper points because of presence of number of sequence and consecutive characters in the password
 
-
         score -= consecChars * 9
+        Console.Write(score & " ")
 
         If seqChars >= 3 Then
             score -= (seqChars - 2) * 2
         End If
+        Console.WriteLine(score, " ")
+        Console.WriteLine(seqChars)
+
 
         ' Generating and checking the presence of substring of input password in the common password dictionary "wordDict"
         ' if it is present then making the boolean isCommon true
@@ -273,30 +282,6 @@ Public Class Form1
                     isCommon = True
                 End If
             Next
-        Next
-
-        ' Frequency Dictionary
-        Dim freqDict As New Dictionary(Of Char, Integer)
-        For Each c In password
-            If Not freqDict.ContainsKey(c) Then
-                freqDict.Add(c, 1)
-            Else
-                freqDict(c) += 1
-            End If
-        Next
-
-        For Each c In password
-            If freqDict(c) >= 3 Then
-                If Char.IsLetter(c) Then
-                    score -= freqDict(c) * 2
-                ElseIf Char.IsNumber(c) Then
-                    score -= freqDict(c) * 4
-                Else
-                    score -= freqDict(c) * 8
-                End If
-
-                freqDict(c) = 0
-            End If
         Next
 
 
@@ -373,6 +358,7 @@ Public Class Form1
         ' Declaration of the strength of password and expression to find it's value
 
         Dim strength As Decimal = Math.Min((score / 120) * 100.0, 100.0)
+        Console.WriteLine(isCommon)
 
         '  Printing the message to show the strength of the password on the GUI
 
