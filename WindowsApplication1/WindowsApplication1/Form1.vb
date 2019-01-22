@@ -461,8 +461,5 @@ Public Class Form1
         textPassword.Text = lblSuggested.Text
     End Sub
 
-    Private Sub labelMessage_Click(sender As Object, e As EventArgs) Handles labelMessage.Click
-
-    End Sub
 End Class
 
