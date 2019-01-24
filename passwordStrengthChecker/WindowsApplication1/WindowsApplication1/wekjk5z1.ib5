@@ -1,0 +1,468 @@
+﻿
+Public Class Form1
+
+    Dim CW As Integer = Me.Width    ' Current Width of Form1
+    Dim CH As Integer = Me.Height   ' Current Height of Form1
+    Dim IW As Integer = Me.Width    ' Initial Width  of Form1
+    Dim IH As Integer = Me.Height   ' Initial Height  of Form1
+
+    Dim score As Integer
+    Dim message As String
+
+    ' Declaring a dictionary to store username as key and his/her password as its value
+
+    Dim dictSavedPasswords As New Dictionary(Of String, String)
+
+
+    ' Function to resize the components in Form1 with respect to change in size of Form1
+
+    Private Sub Form1_Resize(ByVal sender As Object, _
+            ByVal e As System.EventArgs) Handles Me.Resize
+
+
+        Dim RW As Double = (Me.Width - CW) / CW         ' Ratio change of width
+        Dim RH As Double = (Me.Height - CH) / CH        ' Ratio change of height
+
+
+        ' Operations to control the width and height of the Form1 and proper alignment to the left and top side of the Form1
+
+        For Each Ctrl As Control In Controls
+            Ctrl.Width += CInt(Ctrl.Width * RW)
+            Ctrl.Height += CInt(Ctrl.Height * RH)
+            Ctrl.Left += CInt(Ctrl.Left * RW)
+            Ctrl.Top += CInt(Ctrl.Top * RH)
+        Next
+
+
+        CW = Me.Width
+        CH = Me.Height
+
+    End Sub
+
+
+    ' Function that runs again when the text in the txtPassword is changed
+
+    Private Sub txtPassword_TextChanged(sender As Object, e As EventArgs) Handles textPassword.TextChanged, txtUsername.TextChanged
+
+
+        ' Declaring a dictionary "wordDict" to add common passwords 
+        Dim wordDict As New Dictionary(Of String, Integer)
+
+
+        ' Taking the words form the file "dictionary.txt" and inserting all the common words to the dictionary "wordDict" 
+        Dim lines = IO.File.ReadAllLines(My.Resources.dictionary)
+        Console.WriteLine(lines(0))
+
+        ' Loop to insert words in the dictionary "wordDic" with password as key and its value 1 after reading each line from the file
+        For i = 0 To lines.Length - 1
+            If Not wordDict.ContainsKey(lines(i)) Then
+                wordDict.Add(lines(i), 1)
+            End If
+        Next
+
+
+
+        ' Variable declaration of password ,len(length of password),score(to decide the strength of the password) ,message(string)
+
+        Dim password As String = textPassword.Text
+        Dim len As Integer = textPassword.TextLength
+        score = 0 'Dim score As Integer = 0
+        'Dim message As String
+
+        ' Variables declaration of the components of paasswords and its properties
+
+        Dim uppercase As Integer = 0    ' number of uppercase letters in password
+        Dim lowercase As Integer = 0    ' number of lowercase letters in password
+        Dim numbers As Integer = 0      ' number of integers in password 
+        Dim symbols As Integer = 0      ' number of special in the password
+        Dim requirements As Integer = 0     ' basic requirements for a strong password 
+        Dim consecChars As Integer = 0      ' number of consecutive characters in the password
+        Dim seqChars As Integer = 0         ' number of sequential characters in the password{eq:abcde}                  '
+        Dim middleNumOrSym As Integer = 0   ' number of symbols in the middle of the password 
+        Dim isSpace As Boolean = False      ' to check the presence of space in the password
+        Dim lettersOnly As Boolean = True   ' to check the presence of only letters in the password
+        Dim numbersOnly As Boolean = True   ' to check the presence of only numbers in the password
+        Dim isCommon As Boolean = False     ' to check the presence of common words from the dictionary in the password
+        Dim isUsernameInPassword As Boolean = False    ' to check if username is used in password
+
+
+        ' Assigning value to the boolean declared above
+        For Each c In password
+            If Char.IsUpper(c) Then
+                uppercase += 1
+                numbersOnly = False
+            ElseIf Char.IsLower(c) Then
+                lowercase += 1
+                numbersOnly = False
+            ElseIf Char.IsNumber(c) Then
+                numbers += 1
+                lettersOnly = False
+            ElseIf c = " " Then
+                isSpace = True
+            Else
+                symbols += 1
+                lettersOnly = False
+            End If
+        Next
+
+
+
+        ' Changing the value of requirements according to the presence of different essential components of password
+
+        If uppercase > 0 Then
+            requirements += 1
+        End If
+
+        If lowercase > 0 Then
+            requirements += 1
+        End If
+
+        If symbols > 0 Then
+            requirements += 1
+        End If
+
+        If numbers > 0 Then
+            requirements += 1
+        End If
+
+        If password.Length >= 8 Then
+            requirements += 1
+        End If
+
+        ' Changing the value of middleNumOrSym by the presence of symbols in the password
+        For i = 1 To password.Length - 2
+            If Not Char.IsLetter(password.Chars(i)) Then
+                middleNumOrSym += 1
+            End If
+        Next
+
+
+
+        '  Checking the consecutive Letters in the string and incrementing the value of consecChars
+        Dim j As Integer = 1
+
+        ' Applying loop to find the number of consecutive characters in the string
+        While j < password.Length
+            Dim num As Integer = 0
+            While j < password.Length
+                If password.Chars(j) = password.Chars(j - 1) Then
+                    num += 1
+                    j += 1
+                Else
+                    Exit While
+                End If
+            End While
+            j += 1
+            If num > 0 Then
+                consecChars += (num + 1)
+            End If
+        End While
+
+        '  Checking the Sequence of Letters and incrementing the seqChars according to its number
+        j = 1
+
+        ' Applying loop to find the number of sequential characters in the string
+        While j < password.Length
+            Dim num As Integer = 0
+            While j < password.Length
+                If Convert.ToByte(password.Chars(j)) = 1 + Convert.ToByte(password.Chars(j - 1)) Then
+                    num += 1
+                    j += 1
+                Else
+                    Exit While
+                End If
+            End While
+            j += 1
+            If num > 0 Then
+                seqChars += (num + 1)
+            End If
+        End While
+
+
+        ' Essentials components of the password
+        ' 1. Uppercase
+        ' 2. Lowercase
+        ' 3. Symbols
+        ' 4. Characters
+
+        'SCORE CALCULATION
+
+        ' Generating score according to the components and properties of password by proper points
+        score += len * 4
+        Console.Write(score & " ")
+
+
+        ' Changing the tick and cross mark of the components of passwords in the GUI with the presence of corresponding components 
+        ' Incrementing the score with proper point with the presence of components of the password
+        If uppercase > 0 Then
+            lblUppercase.Image = My.Resources.tick
+            score += (len - uppercase) * 2
+        Else
+            lblUppercase.Image = My.Resources.cross
+        End If
+        Console.Write(score & " ")
+
+        If lowercase > 0 Then
+            lblLowercase.Image = My.Resources.tick
+            score += (len - lowercase) * 2
+        Else
+            lblLowercase.Image = My.Resources.cross
+        End If
+        Console.Write(score & " ")
+
+        If numbers > 0 Then
+            lblNumbers.Image = My.Resources.tick
+        Else
+            lblNumbers.Image = My.Resources.cross
+        End If
+
+        If symbols > 0 Then
+            lblSymbols.Image = My.Resources.tick
+        Else
+            lblSymbols.Image = My.Resources.cross
+        End If
+
+        If lowercase > 0 Or uppercase > 0 Or symbols > 0 Then
+            score += numbers * 2
+        End If
+        Console.Write(score & " ")
+
+        score += symbols * 4
+        Console.Write(score & " ")
+
+
+        ' Incrementing score with proper points with the presence of symbols in the middle and requirements in the password
+
+        score += middleNumOrSym * 2
+        Console.Write(score & " ")
+
+
+        If requirements >= 5 Then
+            score += requirements * 2
+        End If
+        Console.Write(score & " ")
+
+
+
+        ' SCORE DEDUCTION
+
+        ' Deduction of score by proper points because of the truthness of booleans which are unfit for a strong password 
+
+
+        If lettersOnly Then
+            score -= (lowercase + uppercase)
+        End If
+        Console.Write(score & " ")
+
+
+        If numbersOnly Then
+            score -= numbers
+        End If
+        Console.Write(score & " ")
+
+
+        ' Deduction of score by proper points because of presence of number of sequence and consecutive characters in the password
+
+        score -= consecChars * 9
+        Console.Write(score & " ")
+
+        If seqChars >= 3 Then
+            score -= (seqChars - 2) * 2
+        End If
+        Console.WriteLine(score, " ")
+        Console.WriteLine(seqChars)
+
+
+        ' Generating and checking the presence of substring of input password in the common password dictionary "wordDict"
+        ' if it is present then making the boolean isCommon true
+
+        For j = 0 To password.Length - 1
+            For k = 1 To password.Length - j
+                If wordDict.ContainsKey(password.Substring(j, k).ToLower()) Then
+                    isCommon = True
+                End If
+            Next
+        Next
+
+
+        ' Checking if substrings of password contain username to weaken the passsword strength
+        For j = 0 To password.Length - 1
+            For k = 1 To password.Length - j
+                If password.Substring(j, k).ToLower() = txtUsername.Text.ToLower() Or password.Substring(j, k).ToLower() = StrReverse(txtUsername.Text.ToLower()) Then
+                    isUsernameInPassword = True
+                End If
+            Next
+        Next
+
+        ' SCORE NORMALISATION (minimum value of score is zero)
+
+        score = Math.Max(0, score)
+
+        ' GUI DESIGN
+
+        ' Changing the label message in the Design according to the property of the input password
+        ' Changing the score ny large points because of the unwanted property of the strong password
+
+        If isSpace Then
+            labelMessage.Text = "Invalid Password! Please don't use spaces."
+            score = 0
+        ElseIf isUsernameInPassword = True Then
+            score = 0
+            labelMessage.Text = "Don't use your username in your password! This will make your password vulnerable."
+        ElseIf wordDict.ContainsKey(password) Then
+            score = 0
+            labelMessage.Text = "Don't use common words as password! This will make your password weaker."
+        ElseIf isCommon = True Then
+            score /= 2
+            labelMessage.Text = "Don't use common words in your password! This will make your password weaker."
+        End If
+
+
+        'BACKGROUND COLOR
+
+
+
+        '  RANGE_OF_SCORE   COLOR_OF_GUI    STRENGTH_OF_PASSWORD
+        '      0-20          IndianRed          VERY WEAK
+        '      21-40         LightSalmon        WEAK
+        '      41-60         LightOrange        AVERAGE
+        '      61-80         LightYellow        GOOD
+        '      81-100        YellowGreen        STRONG
+        '      101-120       Green              VERY STRONG
+
+
+        ' Changing the color of the background of the GUI according to the strength of the password
+
+        If score <= 20 Then
+            Me.BackColor = Color.IndianRed
+            message = "VERY WEAK"
+        ElseIf score <= 40 Then
+            Me.BackColor = Color.LightSalmon
+            message = "WEAK"
+        ElseIf score <= 60 Then
+            Me.BackColor = Color.FromArgb(255, 192, 128)
+            message = "AVERAGE"
+        ElseIf score <= 80 Then
+            Me.BackColor = Color.FromArgb(255, 255, 128)
+            message = "GOOD"
+        ElseIf score <= 100 Then
+            Me.BackColor = Color.YellowGreen
+            message = "STRONG"
+        Else
+            Me.BackColor = Color.FromArgb(128, 255, 128)
+            message = "VERY STRONG"
+        End If
+
+
+
+        ' Declaration of the strength of password and expression to find it's value
+
+        Dim strength As Decimal = Math.Min((score / 120) * 100.0, 100.0)
+        Console.WriteLine(isCommon)
+
+        '  Printing the message to show the strength of the password on the GUI
+
+        If Not isSpace And Not isCommon And Not isUsernameInPassword And Not wordDict.ContainsKey(password) Then
+            labelMessage.Text = "Your password is " & message & " with " & strength & "% strength!"
+        End If
+    End Sub
+
+
+    ' Taking a button to save the password to the dictionary corresponding to its username by clicking on the button 
+    Private Sub btnSavePassword_Click(sender As Object, e As EventArgs) Handles btnSavePassword.Click
+
+        Dim isSpaceInPassword As Boolean = False
+        Dim isSpaceInUsername As Boolean = False
+
+        For Each c In textPassword.Text
+            If c = " " Then
+                isSpaceInPassword = True
+            End If
+        Next
+
+        For Each c In txtUsername.Text
+            If c = " " Then
+                isSpaceInUsername = True
+            End If
+        Next
+
+        If txtUsername.Text = "" Then
+            labelMessage.Text = "Please input username first!"
+        ElseIf textPassword.Text = "" Then
+            labelMessage.Text = "Please input password first!"
+        ElseIf isSpaceInUsername Then
+            labelMessage.Text = "Please input a valid username without spaces"
+        ElseIf isSpaceInPassword Then
+            labelMessage.Text = "Please input a valid password without spaces"
+        ElseIf dictSavedPasswords.ContainsKey(txtUsername.Text) Then
+            dictSavedPasswords(txtUsername.Text) = textPassword.Text
+        Else
+            dictSavedPasswords.Add(txtUsername.Text, textPassword.Text)
+        End If
+
+
+    End Sub
+
+
+    ' Designing a button to show the last saved password corresponding to its username after clicking it
+
+    Private Sub btnMySavedPassword_Click(sender As Object, e As EventArgs) Handles btnMySavedPassword.Click
+        Dim OBJ As New Form2
+        OBJ.dictSavedPasswords = dictSavedPasswords
+        OBJ.username = txtUsername.Text
+        OBJ.Show()
+    End Sub
+
+
+    ' Designing a checkbox to take input form user as "tick" mark and controls the hiding and showing of password
+
+    Private Sub checkboxShowPassword_CheckedChanged(sender As Object, e As EventArgs) Handles checkboxShowPassword.CheckedChanged
+        If checkboxShowPassword.Checked = True Then
+            textPassword.PasswordChar = ""
+        Else
+            textPassword.PasswordChar = "*"
+        End If
+    End Sub
+
+
+    ' Designing a button to suggest complex passwords with strong strength 
+    Private Sub btnSuggest_Click(sender As Object, e As EventArgs) Handles btnSuggest.Click
+        Dim suggestedPassword As String = ""
+        Dim Ch As Integer
+        Dim UsableSymbols() As String
+        Dim Symbols = "`,~,!,@,#,$,%,^,&,*,(,),_,-,=,+,[,{,],},\,|,;,:,',?,/,.,>,<"
+        UsableSymbols = Split(Symbols, ",")
+        Dim Sym As Char
+
+
+        ' Generating complex passwords using Rnd() function and taking length of password is 12
+
+        Randomize()
+
+        For i = 1 To 3
+            Ch = Int((Asc("Z") - Asc("A") + 1) * Rnd() + Asc("A"))
+            suggestedPassword = suggestedPassword & Chr(Ch)
+            Ch = Int((Asc("z") - Asc("a") + 1) * Rnd() + Asc("a"))
+            suggestedPassword = suggestedPassword & Chr(Ch)
+            Ch = Int((Asc("9") - Asc("0") + 1) * Rnd() + Asc("0"))
+            suggestedPassword = suggestedPassword & Chr(Ch)
+
+            Sym = UsableSymbols(Int(30 * Rnd()))
+            suggestedPassword = suggestedPassword & Sym
+        Next
+
+        lblSuggested.Text = suggestedPassword
+    End Sub
+
+
+
+    ' Designing a button to paste the suggested complex password to the passwordtext for the user
+
+    Private Sub btnUseThis_Click(sender As Object, e As EventArgs) Handles btnUseThis.Click
+        If Not lblSuggested.Text = "" Then
+            textPassword.Text = lblSuggested.Text
+        End If
+    End Sub
+
+End Class
+
