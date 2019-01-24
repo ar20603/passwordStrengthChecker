@@ -56,7 +56,7 @@ Public Class Form1
         ' Loop to insert words in the dictionary "wordDic" with password as key and its value 1 after reading each line from the file
         For i = 0 To words.Length - 1
             Dim word As String = words(i).Substring(0, words(i).Length - 1)
-            If Not wordDict.ContainsKey(word) Then
+            If Not word = "" And Not wordDict.ContainsKey(word) Then
                 wordDict.Add(word, 1)
             End If
         Next
@@ -261,7 +261,7 @@ Public Class Form1
         score -= consecChars * 9
 
         If seqChars >= 3 Then
-            score -= (seqChars - 2) * 2
+            score -= (seqChars - 2)
         End If
 
         ' Generating and checking the presence of substring of input password in the common password dictionary "wordDict"
